@@ -47,8 +47,6 @@ class LoginController extends Controller
             $iduser = session()->get('iduser');
             // return $iduser;
             // die();
-<<<<<<< HEAD
-           
                 $pertanyaan = pertanyaan::all();
                 $user=[];
                 
@@ -88,20 +86,3 @@ class LoginController extends Controller
         return redirect('/');
     }
 }
-=======
-
-            $pertanyaan = pertanyaan::all();
-            $user = [];
-
-            for ($i = 0; $i < count($pertanyaan); $i++) {
-                $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
-            }
-
-
-            return view('layouts.home', ['pertanyaan' => $pertanyaan, 'user' => $user, 'iduser' => $iduser]);
-        } else {
-            return ('layouts.login');
-        }
-    }
-}
->>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323

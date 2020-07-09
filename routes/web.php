@@ -11,10 +11,9 @@
 |
 */
 
-//<<<<<<< HEAD
 Route::get('/login', 'LoginController@home');
 Route::post('/login', 'LoginController@login');
-Route::get('/logout/', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout');
 Route::get('/register', 'LoginController@register');
 Route::post('/register', 'LoginController@registertambah');
 Route::get('/', 'PertanyaanController@home');
@@ -43,26 +42,3 @@ Route::get('/up/{idjawaban}/jawaban/{idpertanyaan}', 'VoteJawabanController@up')
 
 Route::get('/up/{idpertanyaan}/pertanyaan', 'VotePertanyaanController@up');
 Route::get('/down/{idpertanyaan}/pertanyaan', 'VotePertanyaanController@down');
-
-
-// Route::get('/artikel', 'ArtikelController@artikel');
-// Route::get('/artikel/create', 'ArtikelController@create');
-// Route::post('/artikel', 'ArtikelController@simpan');
-// Route::get('/artikel/{id}', 'ArtikelController@show');
-// Route::get('/artikel/{id}/edit', 'ArtikelController@edit');
-// Route::put('/artikel/{id}', 'ArtikelController@editsimpan');
-// Route::delete('/artikel/{id}', 'ArtikelController@hapus');
-
-
-// Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
-// Route::post('/items', 'ItemController@store'); // menyimpan data
-// Route::get('/items', 'ItemController@index'); // menampilkan semua
-// Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
-// Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
-// Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
-// Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
-// =======
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// >>>>>>> 4a2fbfdb7115f71afaad18829f1055a947d9e6a3
