@@ -17,7 +17,7 @@
         <h3 style="font-weight:bold">Judul :{{$s->judul}}</h3>
 
         <br>
-        <h3>Isi :{{$s->isi}}</h3>
+        <h3>Isi : {!! $s->isi !!}</h3>
         <br>
         <h3>poin : {{$jumlah}}</h3>
 
@@ -34,9 +34,6 @@
       if ($iduser != $s->iduser) { ?>
 
         <form method="GET" action="/komentar/createpertanyaan/{{$s->idpertanyaan}}/">
-
-
-
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Komen">
           </div>

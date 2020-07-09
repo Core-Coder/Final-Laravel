@@ -51,6 +51,7 @@ class LoginController extends Controller
             $iduser = session()->get('iduser');
             // return $iduser;
             // die();
+<<<<<<< HEAD
             $pointuser=0;
             if($iduser!=""){
                 $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
@@ -75,6 +76,8 @@ class LoginController extends Controller
 
             }
         
+=======
+>>>>>>> 73772d3467f3fd9da7a0306128b761c1961c6ca2
                 $pertanyaan = pertanyaan::all();
                 $user=[];
                 
@@ -113,4 +116,8 @@ class LoginController extends Controller
         }
         return redirect('/');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 73772d3467f3fd9da7a0306128b761c1961c6ca2

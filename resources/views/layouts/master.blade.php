@@ -29,11 +29,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Kelompok <sup>49</sup></div>
       </a>
 
       <!-- Divider -->
@@ -274,7 +274,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Kelompok 49 SanberCode</span>
           </div>
         </div>
       </footer>
@@ -322,7 +322,7 @@
 
   <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
 
-
+  @stack('scripts')
 
 </body>
 

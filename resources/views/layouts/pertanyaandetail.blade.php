@@ -1,10 +1,5 @@
 @extends('layouts/master')
 
-
-
-
-
-
 @section('content')
 <?php if (session()->get('tanda') != "") {
   $tanda = session()->get('tanda');
@@ -39,13 +34,13 @@
 
     <div class="row">
       <div class="col-9">
-        <h3 style="font-weight:bold">Judul :{{$s->judul}}</h3>
+        <h3 style="font-weight:bold">Judul : {{$s->judul}}</h3>
 
         <br>
-        <h3>Isi :{{$s->isi}}</h3>
+        <h3>Isi : {{$s->isi}}</h3>
         <br>
 
-        <h3>Poin: {{$jumlah}}</h3>
+        <h3>Poin : {{$jumlah}}</h3>
         <?php
         $tag = $s->tag;
         $tag1 = explode(",", strtolower($tag));
@@ -66,35 +61,27 @@
 
       <?php
       if ($iduser !== $s->iduser) { ?>
-        <form style="margin-right:10px" method="GET" action="/jawaban/create/{{$s->idpertanyaan}}/">
-
-
-
+        <form style="margin-left:10px" method="GET" action="/jawaban/create/{{$s->idpertanyaan}}/">
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Jawab">
           </div>
         </form>
-        <form method="GET" action="/komentar/createpertanyaan/{{$s->idpertanyaan}}/">
-
-
-
+        
+        <form style="margin-left:10px" method="GET" action="/komentar/createpertanyaan/{{$s->idpertanyaan}}/">
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Komen">
           </div>
         </form>
-        <form style="margin-right:10px;margin-left:10px" method="GET" action="/down/{{$s->idpertanyaan}}/pertanyaan">
 
-
+        <form style="margin-left:10px" method="GET" action="/up/{{$s->idpertanyaan}}/pertanyaan">
           <div class="form-group">
-            <input type="submit" class="btn btn-danger delete-user" value="Down">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-angle-up"></i></button>
           </div>
         </form>
-        <form method="GET" action="/up/{{$s->idpertanyaan}}/pertanyaan">
 
-
-
+        <form style="margin-left:10px" method="GET" action="/down/{{$s->idpertanyaan}}/pertanyaan">
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Up">
+            <button type="submit" class="btn btn-danger"><i class="fas fa-angle-down"></i></button>
           </div>
         </form>
 
@@ -123,7 +110,6 @@
           <th>Isi</th>
           <th>Nama User</th>
           <th>Tanggal di buat</th>
-          <th>Tanggal di edit</th>
           <th>Aksi</th>
         </tr>
       </thead>
@@ -132,46 +118,39 @@
         <tr>
           <td>{{$loop->iteration}}</td>
           <td>{{$s->judul}}</td>
-          <td>{{$s->isi}}</td>
+          <td>{!! $s->isi !!}</td>
           <td>{{$user[$loop->iteration-1][0]->name}}</td>
           <td>{{$s->created_at->format('H:i:s Y-m-d')}}</td>
-          <td>{{$s->updated_at->format('H:i:s Y-m-d')}}</td>
 
 
           <td>
 
             <?php
             if ($iduser !== $s->iduser) { ?>
-              <form method="GET" action="/tandai/{{$s->idjawaban}}/jawaban/{{$pertanyaan[0]->idpertanyaan}}">
 
-
-
+              <form method="GET" action="/up/{{$s->idjawaban}}/jawaban/{{$pertanyaan[0]->idpertanyaan}}">
                 <div class="form-group">
-                  <input type="submit" class="btn btn-success" value="Tandai/Hapus Tandai">
+                  <button type="submit" class="btn btn-primary"><i class="fas fa-angle-up"></i></button>
                 </div>
               </form>
 
               <form method="GET" action="/down/{{$s->idjawaban}}/jawaban/{{$pertanyaan[0]->idpertanyaan}}">
-
-
                 <div class="form-group">
-                  <input type="submit" class="btn btn-danger delete-user" value="Down">
-                </div>
-              </form>
-              <form method="GET" action="/up/{{$s->idjawaban}}/jawaban/{{$pertanyaan[0]->idpertanyaan}}">
-
-
-
-                <div class="form-group">
-                  <input type="submit" class="btn btn-primary" value="Up">
+                  <button type="submit" class="btn btn-danger"><i class="fas fa-angle-down"></i></button>
                 </div>
               </form>
 
-            <?php }
+              <form method="GET" action="/tandai/{{$s->idjawaban}}/jawaban/{{$pertanyaan[0]->idpertanyaan}}">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-success" value="Pin Jawaban">
+                </div>
+              </form>
+              
+              <?php }
             ?>
             <form method="GET" action="/jawaban/detail/{{$s->idjawaban}}/">
-
-
+              
+              
 
               <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Detail">
@@ -209,7 +188,7 @@
         <tr>
           <td>{{$loop->iteration}}</td>
 
-          <td>{{$s->isi}}</td>
+          <td>{!! $s->isi !!}</td>
           <td>{{$userkomentar[$loop->iteration-1][0]->name}}</td>
 
 
