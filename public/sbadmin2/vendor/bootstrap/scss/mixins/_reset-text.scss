@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+@mixin reset-text {
+=======
 @mixin reset-text() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   font-family: $font-family-base;
   // We deliberately do NOT reset font-size or word-wrap.
   font-style: normal;

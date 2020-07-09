@@ -10,12 +10,27 @@
 //
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
+<<<<<<< HEAD
+@mixin form-control-focus() {
+=======
 @mixin form-control-focus($ignore-warning: false) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &:focus {
     color: $input-focus-color;
     background-color: $input-focus-bg;
     border-color: $input-focus-border-color;
     outline: 0;
+<<<<<<< HEAD
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $input-box-shadow, $input-focus-box-shadow;
+    } @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+=======
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
     } @else {
@@ -40,6 +55,7 @@
     }
   }
 }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
 @mixin form-validation-state($state, $color, $icon) {
   .#{$state}-feedback {
@@ -65,6 +81,11 @@
     @include border-radius($form-feedback-tooltip-border-radius);
   }
 
+<<<<<<< HEAD
+  .form-control {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
   @include form-validation-state-selector($state) {
     ~ .#{$state}-feedback,
     ~ .#{$state}-tooltip {
@@ -74,13 +95,20 @@
 
   .form-control {
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       border-color: $color;
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
+<<<<<<< HEAD
+        background-image: $icon;
+        background-repeat: no-repeat;
+        background-position: center right $input-height-inner-quarter;
+=======
         background-image: escape-svg($icon);
         background-repeat: no-repeat;
         background-position: right $input-height-inner-quarter center;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         background-size: $input-height-inner-half $input-height-inner-half;
       }
 
@@ -88,12 +116,25 @@
         border-color: $color;
         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
       }
+<<<<<<< HEAD
+
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 
   // stylelint-disable-next-line selector-no-qualifying-type
   textarea.form-control {
+<<<<<<< HEAD
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
         background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
@@ -102,23 +143,56 @@
   }
 
   .custom-select {
+<<<<<<< HEAD
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       border-color: $color;
 
       @if $enable-validation-icons {
         padding-right: $custom-select-feedback-icon-padding-right;
+<<<<<<< HEAD
+        background: $custom-select-background, $icon $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+=======
         background: $custom-select-background, escape-svg($icon) $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       }
 
       &:focus {
         border-color: $color;
         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
       }
+<<<<<<< HEAD
+
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+
+  .form-control-file {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 
   .form-check-input {
+<<<<<<< HEAD
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       ~ .form-check-label {
         color: $color;
       }
@@ -131,7 +205,12 @@
   }
 
   .custom-control-input {
+<<<<<<< HEAD
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       ~ .custom-control-label {
         color: $color;
 
@@ -140,6 +219,14 @@
         }
       }
 
+<<<<<<< HEAD
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       &:checked {
         ~ .custom-control-label::before {
           border-color: lighten($color, 10%);
@@ -161,11 +248,24 @@
 
   // custom file
   .custom-file-input {
+<<<<<<< HEAD
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+=======
     @include form-validation-state-selector($state) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       ~ .custom-file-label {
         border-color: $color;
       }
 
+<<<<<<< HEAD
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       &:focus {
         ~ .custom-file-label {
           border-color: $color;

@@ -8,7 +8,11 @@
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
+<<<<<<< HEAD
+    @if $prev-num == null or unit($num) == "%" {
+=======
     @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       // Do nothing
     } @else if not comparable($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
@@ -23,12 +27,19 @@
 // Starts at zero
 // Used to ensure the min-width of the lowest breakpoint starts at 0.
 @mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+<<<<<<< HEAD
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+=======
   @if length($map) > 0 {
     $values: map-values($map);
     $first-value: nth($values, 1);
     @if $first-value != 0 {
       @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
     }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
@@ -50,6 +61,8 @@
   @return $string;
 }
 
+<<<<<<< HEAD
+=======
 // See https://codepen.io/kevinweber/pen/dXWoRw
 @function escape-svg($string) {
   @if str-index($string, "data:image/svg+xml") {
@@ -66,6 +79,7 @@
   @return $string;
 }
 
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 // Color contrast
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
   $r: red($color);
@@ -102,6 +116,8 @@
 
   @return mix($color-base, $color, $level * $theme-color-interval);
 }
+<<<<<<< HEAD
+=======
 
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {
@@ -139,3 +155,4 @@
 
   @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(" - ") + $value2);
 }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323

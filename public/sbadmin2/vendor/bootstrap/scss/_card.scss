@@ -7,7 +7,10 @@
   display: flex;
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+<<<<<<< HEAD
+=======
   height: $card-height;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   word-wrap: break-word;
   background-color: $card-bg;
   background-clip: border-box;
@@ -19,6 +22,17 @@
     margin-left: 0;
   }
 
+<<<<<<< HEAD
+  > .list-group:first-child {
+    .list-group-item:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+  }
+
+  > .list-group:last-child {
+    .list-group-item:last-child {
+      @include border-bottom-radius($card-border-radius);
+=======
   > .list-group {
     border-top: inherit;
     border-bottom: inherit;
@@ -31,6 +45,7 @@
     &:last-child  {
       border-bottom-width: 0;
       @include border-bottom-radius($card-inner-border-radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 }
@@ -39,9 +54,12 @@
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
+<<<<<<< HEAD
+=======
   // Workaround for the image size bug in IE
   // See: https://github.com/twbs/bootstrap/pull/28855
   min-height: 1px;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   padding: $card-spacer-x;
   color: $card-color;
 }
@@ -60,7 +78,11 @@
 }
 
 .card-link {
+<<<<<<< HEAD
+  @include hover {
+=======
   @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     text-decoration: none;
   }
 
@@ -93,7 +115,10 @@
 
 .card-footer {
   padding: $card-spacer-y $card-spacer-x;
+<<<<<<< HEAD
+=======
   color: $card-cap-color;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   background-color: $card-cap-bg;
   border-top: $card-border-width solid $card-border-color;
 
@@ -129,6 +154,21 @@
   padding: $card-img-overlay-padding;
 }
 
+<<<<<<< HEAD
+.card-img {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-radius($card-inner-border-radius);
+}
+
+// Card image caps
+.card-img-top {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-top-radius($card-inner-border-radius);
+}
+
+.card-img-bottom {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+=======
 .card-img,
 .card-img-top,
 .card-img-bottom {
@@ -143,6 +183,7 @@
 
 .card-img,
 .card-img-bottom {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   @include border-bottom-radius($card-inner-border-radius);
 }
 
@@ -150,19 +191,35 @@
 // Card deck
 
 .card-deck {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: column;
+
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   .card {
     margin-bottom: $card-deck-margin;
   }
 
   @include media-breakpoint-up(sm) {
+<<<<<<< HEAD
+=======
     display: flex;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     flex-flow: row wrap;
     margin-right: -$card-deck-margin;
     margin-left: -$card-deck-margin;
 
     .card {
+<<<<<<< HEAD
+      display: flex;
       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       flex: 1 0 0%;
+      flex-direction: column;
+=======
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       margin-right: $card-deck-margin;
       margin-bottom: 0; // Override the default
       margin-left: $card-deck-margin;
@@ -176,6 +233,12 @@
 //
 
 .card-group {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: column;
+
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   // The child selector allows nested `.card` within `.card-group`
   // to display properly.
   > .card {
@@ -183,7 +246,10 @@
   }
 
   @include media-breakpoint-up(sm) {
+<<<<<<< HEAD
+=======
     display: flex;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     flex-flow: row wrap;
     // The child selector allows nested `.card` within `.card-group`
     // to display properly.
@@ -265,17 +331,40 @@
   > .card {
     overflow: hidden;
 
+<<<<<<< HEAD
+    &:not(:first-of-type) {
+      .card-header:first-child {
+        @include border-radius(0);
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 0;
+        @include border-radius(0);
+      }
+    }
+
+    &:first-of-type {
+=======
     &:not(:last-of-type) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       border-bottom: 0;
       @include border-bottom-radius(0);
     }
 
+<<<<<<< HEAD
+    &:last-of-type {
+      @include border-top-radius(0);
+    }
+
+    .card-header {
+=======
     &:not(:first-of-type) {
       @include border-top-radius(0);
     }
 
     > .card-header {
       @include border-radius(0);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       margin-bottom: -$card-border-width;
     }
   }

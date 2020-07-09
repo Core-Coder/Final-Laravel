@@ -10,7 +10,10 @@
   display: flex;
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
+<<<<<<< HEAD
+=======
   line-height: 0;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   @include font-size($progress-font-size);
   background-color: $progress-bg;
   @include border-radius($progress-border-radius);
@@ -21,7 +24,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+<<<<<<< HEAD
+=======
   overflow: hidden;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   color: $progress-bar-color;
   text-align: center;
   white-space: nowrap;
@@ -38,10 +44,15 @@
   .progress-bar-animated {
     animation: progress-bar-stripes $progress-bar-animation-timing;
 
+<<<<<<< HEAD
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+=======
     @if $enable-prefers-reduced-motion-media-query {
       @media (prefers-reduced-motion: reduce) {
         animation: none;
       }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 }

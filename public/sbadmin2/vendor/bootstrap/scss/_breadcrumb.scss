@@ -3,15 +3,21 @@
   flex-wrap: wrap;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
   margin-bottom: $breadcrumb-margin-bottom;
+<<<<<<< HEAD
+=======
   @include font-size($breadcrumb-font-size);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   list-style: none;
   background-color: $breadcrumb-bg;
   @include border-radius($breadcrumb-border-radius);
 }
 
 .breadcrumb-item {
+<<<<<<< HEAD
+=======
   display: flex;
 
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
     padding-left: $breadcrumb-item-padding;
@@ -20,7 +26,11 @@
       display: inline-block; // Suppress underlining of the separator in modern browsers
       padding-right: $breadcrumb-item-padding;
       color: $breadcrumb-divider-color;
+<<<<<<< HEAD
+      content: $breadcrumb-divider;
+=======
       content: escape-svg($breadcrumb-divider);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 

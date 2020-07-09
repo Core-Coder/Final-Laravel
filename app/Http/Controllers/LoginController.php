@@ -47,6 +47,48 @@ class LoginController extends Controller
             $iduser = session()->get('iduser');
             // return $iduser;
             // die();
+<<<<<<< HEAD
+           
+                $pertanyaan = pertanyaan::all();
+                $user=[];
+                
+                for($i=0;$i<count($pertanyaan);$i++){
+                    $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
+                    
+                }
+               
+                
+                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser]);
+           
+        }else{
+        return view('layouts.login');
+        }
+    }
+    public function logout(){
+        $name = session()->get('name');
+        if($name!=""){
+            session()->flush();
+            return redirect('/');
+        }
+    }
+    public function register(){
+        return view('layouts.register');
+    }
+    public function registertambah(Request $request){
+        $name = $request->input('username');
+        $password = $request->input('password');
+        
+        $data=array('name'=>$name,"pasword"=>$password);
+        DB::table('user')->insert($data);
+        session()->put('name', $name);
+        $login = login::where('name', $name)->get();
+        if($login->count()>0){
+            session()->put('iduser', $login[0]->iduser);
+        }
+        return redirect('/');
+    }
+}
+=======
 
             $pertanyaan = pertanyaan::all();
             $user = [];
@@ -62,3 +104,4 @@ class LoginController extends Controller
         }
     }
 }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323

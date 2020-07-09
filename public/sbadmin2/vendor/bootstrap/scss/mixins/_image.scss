@@ -7,7 +7,11 @@
 //
 // Keep images from scaling beyond the width of their parents.
 
+<<<<<<< HEAD
+@mixin img-fluid {
+=======
 @mixin img-fluid() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   // Part 1: Set a maximum relative to the parent
   max-width: 100%;
   // Part 2: Override the height to auto, otherwise images will be stretched

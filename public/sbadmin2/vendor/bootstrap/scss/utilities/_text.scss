@@ -11,7 +11,11 @@
 .text-justify  { text-align: justify !important; }
 .text-wrap     { white-space: normal !important; }
 .text-nowrap   { white-space: nowrap !important; }
+<<<<<<< HEAD
+.text-truncate { @include text-truncate; }
+=======
 .text-truncate { @include text-truncate(); }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
 // Responsive alignment
 
@@ -45,7 +49,11 @@
 .text-white { color: $white !important; }
 
 @each $color, $value in $theme-colors {
+<<<<<<< HEAD
+  @include text-emphasis-variant(".text-#{$color}", $value);
+=======
   @include text-emphasis-variant(".text-#{$color}", $value, true);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 }
 
 .text-body { color: $body-color !important; }
@@ -63,7 +71,12 @@
 .text-decoration-none { text-decoration: none !important; }
 
 .text-break {
+<<<<<<< HEAD
+  word-break: break-word !important; // IE & < Edge 18
+  overflow-wrap: break-word !important;
+=======
   word-wrap: break-word !important;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 }
 
 // Reset

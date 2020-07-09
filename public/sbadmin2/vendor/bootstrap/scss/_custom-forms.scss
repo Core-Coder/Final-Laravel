@@ -21,10 +21,14 @@
 
 .custom-control-input {
   position: absolute;
+<<<<<<< HEAD
+  z-index: -1; // Put the input behind the label so it doesn't overlay text
+=======
   left: 0;
   z-index: -1; // Put the input behind the label so it doesn't overlay text
   width: $custom-control-indicator-size;
   height: ($font-size-base * $line-height-base + $custom-control-indicator-size) / 2;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   opacity: 0;
 
   &:checked ~ .custom-control-label::before {
@@ -54,8 +58,11 @@
     @include box-shadow($custom-control-indicator-active-box-shadow);
   }
 
+<<<<<<< HEAD
+=======
   // Use [disabled] and :disabled to work around https://github.com/twbs/bootstrap/issues/28247
   &[disabled],
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &:disabled {
     ~ .custom-control-label {
       color: $custom-control-label-disabled-color;
@@ -74,9 +81,13 @@
 .custom-control-label {
   position: relative;
   margin-bottom: 0;
+<<<<<<< HEAD
+  vertical-align: top;
+=======
   color: $custom-control-label-color;
   vertical-align: top;
   cursor: $custom-control-cursor;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
   // Background-color and (when enabled) gradient
   &::before {
@@ -118,7 +129,11 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
+<<<<<<< HEAD
+      background-image: $custom-checkbox-indicator-icon-checked;
+=======
       background-image: escape-svg($custom-checkbox-indicator-icon-checked);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 
@@ -129,7 +144,11 @@
       @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
     }
     &::after {
+<<<<<<< HEAD
+      background-image: $custom-checkbox-indicator-icon-indeterminate;
+=======
       background-image: escape-svg($custom-checkbox-indicator-icon-indeterminate);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 
@@ -155,7 +174,11 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
+<<<<<<< HEAD
+      background-image: $custom-radio-indicator-icon-checked;
+=======
       background-image: escape-svg($custom-radio-indicator-icon-checked);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 
@@ -184,8 +207,13 @@
     }
 
     &::after {
+<<<<<<< HEAD
+      top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
+      left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
+=======
       top: add(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2, $custom-control-indicator-border-width * 2);
       left: add(-($custom-switch-width + $custom-control-gutter), $custom-control-indicator-border-width * 2);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       width: $custom-switch-indicator-size;
       height: $custom-switch-indicator-size;
       background-color: $custom-control-indicator-border-color;
@@ -227,7 +255,12 @@
   line-height: $custom-select-line-height;
   color: $custom-select-color;
   vertical-align: middle;
+<<<<<<< HEAD
+  background: $custom-select-background;
+  background-color: $custom-select-bg;
+=======
   background: $custom-select-bg $custom-select-background;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   border: $custom-select-border-width solid $custom-select-border-color;
   @include border-radius($custom-select-border-radius, 0);
   @include box-shadow($custom-select-box-shadow);
@@ -237,9 +270,14 @@
     border-color: $custom-select-focus-border-color;
     outline: 0;
     @if $enable-shadows {
+<<<<<<< HEAD
+      box-shadow: $custom-select-box-shadow, $custom-select-focus-box-shadow;
+    } @else {
+=======
       @include box-shadow($custom-select-box-shadow, $custom-select-focus-box-shadow);
     } @else {
       // Avoid using mixin so we can pass custom focus shadow properly
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       box-shadow: $custom-select-focus-box-shadow;
     }
 
@@ -270,12 +308,15 @@
   &::-ms-expand {
     display: none;
   }
+<<<<<<< HEAD
+=======
 
   // Remove outline from select box in FF
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 $custom-select-color;
   }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 }
 
 .custom-select-sm {
@@ -320,8 +361,11 @@
     box-shadow: $custom-file-focus-box-shadow;
   }
 
+<<<<<<< HEAD
+=======
   // Use [disabled] and :disabled to work around https://github.com/twbs/bootstrap/issues/28247
   &[disabled] ~ .custom-file-label,
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &:disabled ~ .custom-file-label {
     background-color: $custom-file-disabled-bg;
   }
@@ -380,7 +424,11 @@
 
 .custom-range {
   width: 100%;
+<<<<<<< HEAD
+  height: calc(#{$custom-range-thumb-height} + #{$custom-range-thumb-focus-box-shadow-width * 2});
+=======
   height: add($custom-range-thumb-height, $custom-range-thumb-focus-box-shadow-width * 2);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   padding: 0; // Need to reset padding
   background-color: transparent;
   appearance: none;
