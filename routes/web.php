@@ -14,7 +14,9 @@
 <<<<<<< HEAD
 Route::get('/login', 'LoginController@home');
 Route::post('/login', 'LoginController@login');
-
+Route::get('/logout/', 'LoginController@logout');
+Route::get('/register', 'LoginController@register');
+Route::post('/register', 'LoginController@registertambah');
 Route::get('/', 'PertanyaanController@home');
 Route::get('/pertanyaan/create', 'PertanyaanController@buat');
 Route::post('/pertanyaan', 'PertanyaanController@buatpertanyaan');
