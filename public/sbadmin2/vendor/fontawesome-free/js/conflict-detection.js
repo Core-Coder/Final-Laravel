@@ -1,5 +1,9 @@
 /*!
+<<<<<<< HEAD
  * Font Awesome Free 5.10.2 by @fontawesome - https://fontawesome.com
+=======
+ * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 (function (global, factory) {
@@ -602,6 +606,14 @@
   var timeoutAttr = 'data-fa-detection-timeout';
   var resultsCollectionMaxWaitAttr = 'data-fa-detection-results-collection-max-wait';
 
+<<<<<<< HEAD
+=======
+  var silenceErrors = function silenceErrors(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   function pollUntil(_ref) {
     var _ref$fn = _ref.fn,
         fn = _ref$fn === void 0 ? function () {
@@ -726,6 +738,10 @@
       diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(nodeUnderTestId, "', '").concat(testIconId || 'foo', "', '").concat(md5, "', '").concat(parentOrigin, "');");
 
       diagFrame.onload = function () {
+<<<<<<< HEAD
+=======
+        diagFrame.contentWindow.addEventListener('error', silenceErrors, true);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         diagFrame.contentDocument.head.appendChild(diagScript);
         diagFrame.contentDocument.head.appendChild(scriptOrLinkTag);
         diagFrame.contentDocument.body.appendChild(iTag);
@@ -825,6 +841,10 @@
       diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(nodeUnderTestId, "', '").concat(md5ForScript, "', '").concat(parentOrigin, "');");
 
       diagFrame.onload = function () {
+<<<<<<< HEAD
+=======
+        diagFrame.contentWindow.addEventListener('error', silenceErrors, true);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         diagFrame.contentDocument.head.appendChild(diagScript);
         diagFrame.contentDocument.head.appendChild(scriptUnderTest);
       };

@@ -11,7 +11,7 @@
 |
 */
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 Route::get('/login', 'LoginController@home');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout/', 'LoginController@logout');
@@ -61,8 +61,8 @@ Route::get('/down/{idpertanyaan}/pertanyaan', 'VotePertanyaanController@down');
 // Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
 // Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
 // Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
-=======
-Route::get('/', function () {
-    return view('welcome');
-});
->>>>>>> 4a2fbfdb7115f71afaad18829f1055a947d9e6a3
+// =======
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// >>>>>>> 4a2fbfdb7115f71afaad18829f1055a947d9e6a3

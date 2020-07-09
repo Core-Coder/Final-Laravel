@@ -2,15 +2,27 @@
 
 // Typography
 
+<<<<<<< HEAD
 @mixin text-emphasis-variant($parent, $color) {
+=======
+@mixin text-emphasis-variant($parent, $color, $ignore-warning: false) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   #{$parent} {
     color: $color !important;
   }
   @if $emphasized-link-hover-darken-percentage != 0 {
     a#{$parent} {
+<<<<<<< HEAD
       @include hover-focus {
+=======
+      @include hover-focus() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         color: darken($color, $emphasized-link-hover-darken-percentage) !important;
       }
     }
   }
+<<<<<<< HEAD
+=======
+  @include deprecate("`text-emphasis-variant()`", "v4.4.0", "v5", $ignore-warning);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 }

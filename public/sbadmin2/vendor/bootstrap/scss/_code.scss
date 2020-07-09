@@ -2,7 +2,11 @@
 code {
   @include font-size($code-font-size);
   color: $code-color;
+<<<<<<< HEAD
   word-break: break-word;
+=======
+  word-wrap: break-word;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
   // Streamline the style when inside anchors to avoid broken underline and more
   a > & {

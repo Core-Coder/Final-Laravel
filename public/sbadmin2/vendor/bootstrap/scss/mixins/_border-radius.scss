@@ -1,9 +1,28 @@
 // stylelint-disable property-blacklist
 // Single side border-radius
 
+<<<<<<< HEAD
 @mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
   @if $enable-rounded {
     border-radius: $radius;
+=======
+// Helper function to replace negative values with 0
+@function valid-radius($radius) {
+  $return: ();
+  @each $value in $radius {
+    @if type-of($value) == number {
+      $return: append($return, max($value, 0));
+    } @else {
+      $return: append($return, $value);
+    }
+  }
+  @return $return;
+}
+
+@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+  @if $enable-rounded {
+    border-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
   @else if $fallback-border-radius != false {
     border-radius: $fallback-border-radius;
@@ -12,52 +31,88 @@
 
 @mixin border-top-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
+=======
+    border-top-left-radius: valid-radius($radius);
+    border-top-right-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-right-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-top-right-radius: $radius;
     border-bottom-right-radius: $radius;
+=======
+    border-top-right-radius: valid-radius($radius);
+    border-bottom-right-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-bottom-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-bottom-right-radius: $radius;
     border-bottom-left-radius: $radius;
+=======
+    border-bottom-right-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-left-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-top-left-radius: $radius;
     border-bottom-left-radius: $radius;
+=======
+    border-top-left-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-top-left-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-top-left-radius: $radius;
+=======
+    border-top-left-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-top-right-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-top-right-radius: $radius;
+=======
+    border-top-right-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-bottom-right-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-bottom-right-radius: $radius;
+=======
+    border-bottom-right-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }
 
 @mixin border-bottom-left-radius($radius) {
   @if $enable-rounded {
+<<<<<<< HEAD
     border-bottom-left-radius: $radius;
+=======
+    border-bottom-left-radius: valid-radius($radius);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 }

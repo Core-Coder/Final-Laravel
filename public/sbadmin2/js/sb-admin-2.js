@@ -15,6 +15,16 @@
     if ($(window).width() < 768) {
       $('.sidebar .collapse').collapse('hide');
     };
+<<<<<<< HEAD
+=======
+    
+    // Toggle the side navigation when window is resized below 480px
+    if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
+      $("body").addClass("sidebar-toggled");
+      $(".sidebar").addClass("toggled");
+      $('.sidebar .collapse').collapse('hide');
+    };
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   });
 
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over

@@ -84,7 +84,11 @@
 
 .table-hover {
   tbody tr {
+<<<<<<< HEAD
     @include hover {
+=======
+    @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       color: $table-hover-color;
       background-color: $table-hover-bg;
     }
@@ -142,14 +146,22 @@
   }
 
   &.table-striped {
+<<<<<<< HEAD
     tbody tr:nth-of-type(odd) {
+=======
+    tbody tr:nth-of-type(#{$table-striped-order}) {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       background-color: $table-dark-accent-bg;
     }
   }
 
   &.table-hover {
     tbody tr {
+<<<<<<< HEAD
       @include hover {
+=======
+      @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         color: $table-dark-hover-color;
         background-color: $table-dark-hover-bg;
       }

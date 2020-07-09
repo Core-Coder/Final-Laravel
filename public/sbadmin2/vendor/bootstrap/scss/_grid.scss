@@ -3,10 +3,15 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
+<<<<<<< HEAD
+=======
+  // Single container class with breakpoint max-widths
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   .container {
     @include make-container();
     @include make-container-max-widths();
   }
+<<<<<<< HEAD
 }
 
 // Fluid container
@@ -23,6 +28,48 @@
 // Row
 //
 // Rows contain and clear the floats of your columns.
+=======
+
+  // 100% wide container at all breakpoints
+  .container-fluid {
+    @include make-container();
+  }
+
+  // Responsive containers that are 100% wide until a breakpoint
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    .container-#{$breakpoint} {
+      @extend .container-fluid;
+    }
+
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      %responsive-container-#{$breakpoint} {
+        max-width: $container-max-width;
+      }
+
+      // Extend each breakpoint which is smaller or equal to the current breakpoint
+      $extend-breakpoint: true;
+
+      @each $name, $width in $grid-breakpoints {
+        @if ($extend-breakpoint) {
+          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+            @extend %responsive-container-#{$breakpoint};
+          }
+
+          // Once the current breakpoint is reached, stop extending
+          @if ($breakpoint == $name) {
+            $extend-breakpoint: false;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Row
+//
+// Rows contain your columns.
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
 @if $enable-grid-classes {
   .row {
