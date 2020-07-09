@@ -22,7 +22,26 @@ class LoginController extends Controller
             $iduser = session()->get('iduser');
             // return $iduser;
             // die();
-           
+            $pointuser=0;
+            if($iduser!=""){
+                $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $idjawabanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $pointuser=0;
+            
+            for($i=0;$i<count($idpertanyaanpengguna);$i++){
+                $nilaivote = vote::where('idtujuan','pertanyaan,'.$idpertanyaanpengguna[$i]->idpertanyaan)->get();
+                
+                for($j=0;$j<count($nilaivote);$j++){
+                    $pointuser += $nilaivote[$j]->poin;
+                }
+            }
+            for($i=0;$i<count($idjawabanpengguna);$i++){
+                $nilaivote1 = vote::where('idtujuan','jawaban,'.$idjawabanpengguna[$i]->idjawaban)->get();
+                
+                for($j=0;$j<count($nilaivote1);$j++){
+                    $pointuser += $nilaivote1[$j]->poin;
+                }
+            }}
                 $pertanyaan = pertanyaan::all();
                 $user=[];
                 
@@ -32,7 +51,7 @@ class LoginController extends Controller
                 }
                
                 
-                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser]);
+                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poinuser'=>$pointuser]);
      
             die();
             
@@ -51,6 +70,30 @@ class LoginController extends Controller
             $iduser = session()->get('iduser');
             // return $iduser;
             // die();
+            $pointuser=0;
+            if($iduser!=""){
+                $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $idjawabanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $pointuser=0;
+            
+            for($i=0;$i<count($idpertanyaanpengguna);$i++){
+                $nilaivote = vote::where('idtujuan','pertanyaan,'.$idpertanyaanpengguna[$i]->idpertanyaan)->get();
+                
+                for($j=0;$j<count($nilaivote);$j++){
+                    $pointuser += $nilaivote[$j]->poin;
+                }
+            }
+            for($i=0;$i<count($idjawabanpengguna);$i++){
+                $nilaivote1 = vote::where('idtujuan','jawaban,'.$idjawabanpengguna[$i]->idjawaban)->get();
+                
+                for($j=0;$j<count($nilaivote1);$j++){
+                    $pointuser += $nilaivote1[$j]->poin;
+                }
+            }
+            
+
+            }
+        
                 $pertanyaan = pertanyaan::all();
                 $user=[];
                 
@@ -60,7 +103,7 @@ class LoginController extends Controller
                 }
                
                 
-                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poin'=>$pointuser]);
+                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poinuser'=>$pointuser]);
            
         }else{
         return view('layouts.login');

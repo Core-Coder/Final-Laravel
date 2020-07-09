@@ -37,7 +37,7 @@
         <h3 style="font-weight:bold">Judul : {{$s->judul}}</h3>
 
         <br>
-        <h3>Isi : {{$s->isi}}</h3>
+        <h3>Isi : {!! $s->isi !!}</h3>
         <br>
 
         <h3>Poin : {{$jumlah}}</h3>

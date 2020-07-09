@@ -13,9 +13,12 @@
 
 Route::get('/login', 'LoginController@home');
 Route::post('/login', 'LoginController@login');
+
 Route::get('/logout', 'LoginController@logout');
+
 Route::get('/register', 'LoginController@register');
 Route::post('/register', 'LoginController@registertambah');
+
 Route::get('/', 'PertanyaanController@home');
 Route::get('/pertanyaan/create', 'PertanyaanController@buat');
 Route::post('/pertanyaan', 'PertanyaanController@buatpertanyaan');
@@ -25,14 +28,15 @@ Route::put('/pertanyaan/{idpertanyaan}', 'PertanyaanController@editsimpan');
 Route::delete('/pertanyaan/{idpertanyaan}', 'PertanyaanController@delete');
 
 
-
 Route::get('/jawaban/create/{idpertanyaan}', 'JawabanController@form');
 Route::get('/jawaban/detail/{idjawaban}', 'JawabanController@jawabandetail');
 Route::post('/jawaban/{idpertanyaan}', 'JawabanController@buatsimpan');
 
 
 Route::get('/komentar/createpertanyaan/{idpertanyaan}', 'KomentarController@formpertanyaan');
+Route::get('/komentar/createjawaban/{idjawaban}', 'KomentarController@formjawaban');
 Route::post('/komentar/{idpertanyaan}/pertanyaan/', 'KomentarController@simpankomentarpertanyaan');
+Route::post('/komentar/{idjawaban}/jawaban/', 'KomentarController@simpankomentarjawaban');
 
 
 Route::get('/tandai/{idjawaban}/jawaban/{idpertanyaan}', 'VoteJawabanController@tandai');
