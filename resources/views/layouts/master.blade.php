@@ -332,7 +332,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-         @yield('content')
+          @yield('content')
 
         </div>
         <!-- /.container-fluid -->
@@ -391,9 +391,8 @@
   <script src={{asset("sbadmin2/js/sb-admin-2.min.js")}}></script>
 
   <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
- 
-  <script src={{asset("sbadmin2/js/swal.min.js")}}></script>
-  @stack('scripts')
+
+
 
 </body>
 

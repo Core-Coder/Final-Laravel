@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class komentar extends Model
 {
-    protected $table= "komentar";
+    protected $table = "komentar";
 }
