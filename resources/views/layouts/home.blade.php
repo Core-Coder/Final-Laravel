@@ -11,7 +11,7 @@
     </div>
   </form>
   <div class="table-responsive">
-  <h3>Poin Anda : {{$poinuser}}</h3>
+  <h3>Poin Anda : {{$pointuser}}</h3>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>

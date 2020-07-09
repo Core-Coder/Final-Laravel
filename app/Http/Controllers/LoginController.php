@@ -60,7 +60,7 @@ class LoginController extends Controller
                 }
                
                 
-                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poinuser'=>$pointuser]);
+                return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poin'=>$pointuser]);
            
         }else{
         return view('layouts.login');
