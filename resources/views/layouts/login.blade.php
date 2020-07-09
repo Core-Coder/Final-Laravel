@@ -19,9 +19,9 @@
   <link href={{asset("sbadmin2/css/sb-admin-2.min.css")}} rel="stylesheet">
 
 </head>
-
 <body id="page-top">
 
+<<<<<<< HEAD
   <div class="container" style="margin-top:20px">
 
 
@@ -34,12 +34,10 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                  </div>
+                 
                   <form class="user" action="/login" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group row">
@@ -70,10 +68,38 @@
             </div>
           </div>
         </div>
-      </div>
+=======
+<div class="container" style="margin-top:20px">
+<form action="/login" method="POST">
+{{ csrf_field() }}
+  <div class="form-group row">
+    <label for="username" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
     </div>
   </div>
-  <script src={{asset("/sbadmin2/vendor/jquery/jquery.min.js")}}></script>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+  </div>
+>>>>>>> 73772d3467f3fd9da7a0306128b761c1961c6ca2
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-12" style="text-align:center">
+    <?php if(isset($data)){
+        echo "<script>alert('$data')</script>";
+    }?>
+      <button style="margin:auto"  type="submit" name="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </div>
+</form>
+
+</div>
+<script src={{asset("sbadmin2/vendor/jquery/jquery.min.js")}}></script>
   <script src={{asset("sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js")}}></script>
 
   <!-- Core plugin JavaScript-->
@@ -83,9 +109,9 @@
   <script src={{asset("sbadmin2/js/sb-admin-2.min.js")}}></script>
 
   <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
-
+ 
   <script src={{asset("sbadmin2/js/swal.min.js")}}></script>
-
+ 
 
 </body>
 

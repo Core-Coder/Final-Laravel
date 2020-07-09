@@ -10,8 +10,11 @@
   font-weight: $btn-font-weight;
   color: $body-color;
   text-align: center;
+<<<<<<< HEAD
+=======
   text-decoration: if($link-decoration == none, null, none);
   white-space: $btn-white-space;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
@@ -19,7 +22,11 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
+<<<<<<< HEAD
+  @include hover {
+=======
   @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     color: $body-color;
     text-decoration: none;
   }
@@ -37,6 +44,14 @@
     @include box-shadow(none);
   }
 
+<<<<<<< HEAD
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+=======
   &:not(:disabled):not(.disabled) {
     cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
 
@@ -47,6 +62,7 @@
       &:focus {
         @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
       }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     }
   }
 }
@@ -85,7 +101,11 @@ fieldset:disabled a.btn {
   color: $link-color;
   text-decoration: $link-decoration;
 
+<<<<<<< HEAD
+  @include hover {
+=======
   @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
@@ -93,6 +113,10 @@ fieldset:disabled a.btn {
   &:focus,
   &.focus {
     text-decoration: $link-hover-decoration;
+<<<<<<< HEAD
+    box-shadow: none;
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   }
 
   &:disabled,

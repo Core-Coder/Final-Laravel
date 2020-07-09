@@ -11,7 +11,10 @@
   margin-left: -$pagination-border-width;
   line-height: $pagination-line-height;
   color: $pagination-color;
+<<<<<<< HEAD
+=======
   text-decoration: if($link-decoration == none, null, none);
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   background-color: $pagination-bg;
   border: $pagination-border-width solid $pagination-border-color;
 
@@ -24,7 +27,11 @@
   }
 
   &:focus {
+<<<<<<< HEAD
+    z-index: 2;
+=======
     z-index: 3;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     outline: $pagination-focus-outline;
     box-shadow: $pagination-focus-box-shadow;
   }
@@ -44,7 +51,11 @@
   }
 
   &.active .page-link {
+<<<<<<< HEAD
+    z-index: 1;
+=======
     z-index: 3;
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     color: $pagination-active-color;
     background-color: $pagination-active-bg;
     border-color: $pagination-active-border-color;

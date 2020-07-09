@@ -15,6 +15,14 @@
   @each $breakpoint in map-keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
+<<<<<<< HEAD
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+=======
     @if $columns > 0 {
       // Allow columns to stretch full width below their breakpoints
       @for $i from 1 through $columns {
@@ -24,6 +32,7 @@
       }
     }
 
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     .col#{$infix},
     .col#{$infix}-auto {
       @extend %grid-column;
@@ -34,6 +43,19 @@
       .col#{$infix} {
         flex-basis: 0;
         flex-grow: 1;
+<<<<<<< HEAD
+        max-width: 100%;
+      }
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+=======
         min-width: 0; // See https://github.com/twbs/bootstrap/issues/25410
         max-width: 100%;
       }
@@ -55,6 +77,7 @@
           .col#{$infix}-#{$i} {
             @include make-col($i, $columns);
           }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         }
       }
 
@@ -66,6 +89,13 @@
         .order#{$infix}-#{$i} { order: $i; }
       }
 
+<<<<<<< HEAD
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
+=======
       @if $columns > 0 {
         // `$columns - 1` because offsetting by the width of an entire row isn't possible
         @for $i from 0 through ($columns - 1) {
@@ -73,6 +103,7 @@
             .offset#{$infix}-#{$i} {
               @include make-col-offset($i, $columns);
             }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
           }
         }
       }

@@ -9,18 +9,30 @@
 //
 // Issue: https://github.com/twbs/bootstrap/issues/25195
 
+<<<<<<< HEAD
+@mixin hover {
+  &:hover { @content; }
+}
+
+@mixin hover-focus {
+=======
 @mixin hover() {
   &:hover { @content; }
 }
 
 @mixin hover-focus() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &:hover,
   &:focus {
     @content;
   }
 }
 
+<<<<<<< HEAD
+@mixin plain-hover-focus {
+=======
 @mixin plain-hover-focus() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &,
   &:hover,
   &:focus {
@@ -28,7 +40,11 @@
   }
 }
 
+<<<<<<< HEAD
+@mixin hover-focus-active {
+=======
 @mixin hover-focus-active() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   &:hover,
   &:focus,
   &:active {

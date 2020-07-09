@@ -45,16 +45,21 @@
   max-width: percentage($size / $columns);
 }
 
+<<<<<<< HEAD
+=======
 @mixin make-col-auto() {
   flex: 0 0 auto;
   width: auto;
   max-width: 100%; // Reset earlier grid tiers
 }
 
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 @mixin make-col-offset($size, $columns: $grid-columns) {
   $num: $size / $columns;
   margin-left: if($num == 0, 0, percentage($num));
 }
+<<<<<<< HEAD
+=======
 
 // Row columns
 //
@@ -67,3 +72,4 @@
     max-width: 100% / $count;
   }
 }
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323

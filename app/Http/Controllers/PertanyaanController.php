@@ -10,138 +10,218 @@ use App\komentar;
 use App\vote;
 
 use DB;
-
 class PertanyaanController extends Controller
 {
-    public function home()
-    {
-
+    public function home(){
+      
         $name = session()->get('name');
         $iduser = session()->get('iduser');
         // return $iduser;
+
         // die();
+        $pointuser=0;
+            if($iduser!=""){
+                $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $idjawabanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $pointuser=0;
+            
+            for($i=0;$i<count($idpertanyaanpengguna);$i++){
+                $nilaivote = vote::where('idtujuan','pertanyaan,'.$idpertanyaanpengguna[$i]->idpertanyaan)->get();
+                
+                for($j=0;$j<count($nilaivote);$j++){
+                    $pointuser += $nilaivote[$j]->poin;
+                }
+            }
+            for($i=0;$i<count($idjawabanpengguna);$i++){
+                $nilaivote1 = vote::where('idtujuan','jawaban,'.$idjawabanpengguna[$i]->idjawaban)->get();
+                
+                for($j=0;$j<count($nilaivote1);$j++){
+                    $pointuser += $nilaivote1[$j]->poin;
+                }
+            }
+            
 
-        $pertanyaan = pertanyaan::all();
-        $user = [];
-
-        for ($i = 0; $i < count($pertanyaan); $i++) {
-            $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
-        }
-
-
-        return view('layouts.home', ['pertanyaan' => $pertanyaan, 'user' => $user, 'iduser' => $iduser]);
+            }
+            $pertanyaan = pertanyaan::all();
+            $user=[];
+            
+            for($i=0;$i<count($pertanyaan);$i++){
+                $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
+                
+            }
+           
+            return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser, 'poinuser'=>$pointuser]);
+        
+        
     }
-    public function show($idpertanyaan)
-    {
+    public function show($idpertanyaan){
         $name = session()->get('name');
         $iduser = session()->get('iduser');
-
-
-        $pertanyaan = pertanyaan::where('idpertanyaan', $idpertanyaan)->get();
-
-        $jawaban = jawaban::where('idpertanyaan', $idpertanyaan)->get();
-        $komentar = komentar::where('idtujuan', 'pertanyaan,' . $idpertanyaan)->get();
-        $vote = vote::where('idtujuan', 'pertanyaan,' . $idpertanyaan)->get();
-        $jumlah = 0;
-        for ($i = 0; $i < count($vote); $i++) {
-            $jumlah += $vote[$i]->poin;
-        }
-
-        $user = [];
-        $userkomentar = [];
-        for ($i = 0; $i < count($jawaban); $i++) {
-            $user[] = login::where('iduser', $jawaban[$i]['iduser'])->get();
-        }
-        for ($i = 0; $i < count($komentar); $i++) {
-            $userkomentar[] = login::where('iduser', $komentar[$i]['iduser'])->get();
-        }
-
-        return view('layouts.pertanyaandetail', ['pertanyaan' => $pertanyaan, 'user' => $user, 'jawaban' => $jawaban, 'iduser' => $iduser, 'userkomentar' => $userkomentar, 'komentar' => $komentar, 'jumlah' => $jumlah]);
+        
+            
+            $pertanyaan = pertanyaan::where('idpertanyaan',$idpertanyaan)->get();
+           
+            $jawaban = jawaban::where('idpertanyaan',$idpertanyaan)->get();
+            $komentar = komentar::where('idtujuan','pertanyaan,'.$idpertanyaan)->get();
+            $vote = vote::where('idtujuan', 'pertanyaan,'.$idpertanyaan)->get();
+            $jumlah = 0;
+            for($i=0;$i<count($vote);$i++){
+                $jumlah+=$vote[$i]->poin;
+            }
+            
+            $user=[];
+            $userkomentar=[];
+            for($i=0;$i<count($jawaban);$i++){
+                $user[] = login::where('iduser', $jawaban[$i]['iduser'])->get();
+                
+            }
+            for($i=0;$i<count($komentar);$i++){
+                $userkomentar[] = login::where('iduser', $komentar[$i]['iduser'])->get();
+                
+            }
+           
+            return view('layouts.pertanyaandetail', ['pertanyaan'=>$pertanyaan,'user'=>$user ,'jawaban'=>$jawaban, 'iduser'=>$iduser, 'userkomentar'=>$userkomentar, 'komentar'=>$komentar, 'jumlah'=>$jumlah]);
+        
     }
-    public function buat()
-    {
+    public function buat(){
         $name = session()->get('name');
-        if ($name == "") {
-            return view('layouts.login', ['data' => 'belum login']);
-        } else {
-            return view('layouts.formbuatpertanyaan');
-        }
+        if($name=="")
+        {
+            return view('layouts.login',['data'=>'belum login']);   
+        }else{
+            return view('layouts.formbuatpertanyaan'); 
+        }   
     }
-    public function buatpertanyaan(Request $request)
-    {
+    public function buatpertanyaan(Request $request){
         $name = session()->get('name');
         $iduser = session()->get('iduser');
-        if ($name == "") {
-            return view('layouts.login', ['data' => 'belum login']);
-        } else {
+        if($name=="")
+        {
+            return view('layouts.login',['data'=>'belum login']);   
+        }else{
             $judul = $request->input('judul');
             $isi = $request->input('isi');
             $tag = $request->input('tag');
             $baru = date('Y-m-d H:i:s');
-
-            $data = array('judul' => $judul, "isi" => $isi, "tag" => $tag, 'iduser' => $iduser, 'created_at' => $baru, 'updated_at' => $baru);
+            
+            $data=array('judul'=>$judul,"isi"=>$isi,"tag"=>$tag, 'iduser'=>$iduser, 'created_at'=>$baru, 'updated_at'=>$baru);
             DB::table('pertanyaan')->insert($data);
             return redirect('/');
-        }
+           
+        }   
     }
-    public function edit($idpertanyaan)
-    {
-
+    public function edit($idpertanyaan){
+        
         $name = session()->get('name');
-        if ($name == "") {
-            return view('layouts.login', ['data' => 'belum login']);
-        } else {
-            $pertanyaan = pertanyaan::where('idpertanyaan', $idpertanyaan)->get();
-
-            return view('layouts.formeditpertanyaan', ['pertanyaan' => $pertanyaan[0]]);
-        }
+        if($name=="")
+        {
+            return view('layouts.login',['data'=>'belum login']);   
+        }else{
+            $pertanyaan = pertanyaan::where('idpertanyaan',$idpertanyaan)->get();
+          
+            return view('layouts.formeditpertanyaan', ['pertanyaan'=> $pertanyaan[0]]); 
+        }   
     }
-    public function editsimpan(Request $request)
-    {
+    public function editsimpan(Request $request){
         $name = session()->get('name');
         $iduser = session()->get('iduser');
-        if ($name == "") {
-            return view('layouts.login', ['data' => 'belum login']);
-        } else {
+        if($name=="")
+        {
+            return view('layouts.login',['data'=>'belum login']);   
+        }else{
             $judul = $request->input('judul');
             $isi = $request->input('isi');
             $tag = $request->input('tag');
             $baru = date('Y-m-d H:i:s');
+            $pointuser=0;
+            if($iduser!=""){
+                $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $idjawabanpengguna = pertanyaan::where('iduser', $iduser)->get();
+         
+            
+            for($i=0;$i<count($idpertanyaanpengguna);$i++){
+                $nilaivote = vote::where('idtujuan','pertanyaan,'.$idpertanyaanpengguna[$i]->idpertanyaan)->get();
+                
+                for($j=0;$j<count($nilaivote);$j++){
+                    $pointuser += $nilaivote[$j]->poin;
+                }
+            }
+            for($i=0;$i<count($idjawabanpengguna);$i++){
+                $nilaivote1 = vote::where('idtujuan','jawaban,'.$idjawabanpengguna[$i]->idjawaban)->get();
+                
+                for($j=0;$j<count($nilaivote1);$j++){
+                    $pointuser += $nilaivote1[$j]->poin;
+                }
+            }
+            
+
+            }
+        
             $idpertanyaan = $request->route('idpertanyaan');
-            DB::table('pertanyaan')->where('idpertanyaan', $idpertanyaan)->update([
+            DB::table('pertanyaan')->where('idpertanyaan',$idpertanyaan)->update([
                 'judul' => $judul,
-                'isi' => $isi,
-                'tag' => $tag,
-                'updated_at' => $baru
+                'isi' => $isi,                
+                'tag'=>$tag,
+                'updated_at'=>$baru
             ]);
             $pertanyaan = pertanyaan::all();
-            $user = [];
-
-            for ($i = 0; $i < count($pertanyaan); $i++) {
+            $user=[];
+            
+            for($i=0;$i<count($pertanyaan);$i++){
                 $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
+                
             }
-
-
-            return view('layouts.home', ['pertanyaan' => $pertanyaan, 'user' => $user, 'iduser' => $iduser]);
-        }
-    }
-    public function delete($idpertanyaan)
-    {
+           
+            
+            return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poinuser'=>$pointuser]);
+            
+           
+        }   
+        
+     }
+     public function delete($idpertanyaan){
         $name = session()->get('name');
-        $iduser = session()->get('iduser');
-        if ($name == "") {
-            return view('layouts.login', ['data' => 'belum login']);
-        } else {
-            DB::table('pertanyaan')->where('idpertanyaan', $idpertanyaan)->delete();
-            $pertanyaan = pertanyaan::all();
-            $user = [];
-
-            for ($i = 0; $i < count($pertanyaan); $i++) {
-                $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
-            }
-
-
-            return view('layouts.home', ['pertanyaan' => $pertanyaan, 'user' => $user, 'iduser' => $iduser]);
+    $iduser = session()->get('iduser');
+    if($name=="")
+    {
+        return view('layouts.login',['data'=>'belum login']);   
+    }else{
+        DB::table('pertanyaan')->where('idpertanyaan', $idpertanyaan)->delete();
+        $pertanyaan = pertanyaan::all();
+        $user=[];
+        
+        for($i=0;$i<count($pertanyaan);$i++){
+            $user[] = login::where('iduser', $pertanyaan[$i]['iduser'])->get();
+            
         }
+        $pointuser=0;
+            if($iduser!=""){
+                $idpertanyaanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $idjawabanpengguna = pertanyaan::where('iduser', $iduser)->get();
+            $pointuser=0;
+            
+            for($i=0;$i<count($idpertanyaanpengguna);$i++){
+                $nilaivote = vote::where('idtujuan','pertanyaan,'.$idpertanyaanpengguna[$i]->idpertanyaan)->get();
+                
+                for($j=0;$j<count($nilaivote);$j++){
+                    $pointuser += $nilaivote[$j]->poin;
+                }
+            }
+            for($i=0;$i<count($idjawabanpengguna);$i++){
+                $nilaivote1 = vote::where('idtujuan','jawaban,'.$idjawabanpengguna[$i]->idjawaban)->get();
+                
+                for($j=0;$j<count($nilaivote1);$j++){
+                    $pointuser += $nilaivote1[$j]->poin;
+                }
+            }
+            
+
+            }
+      
+       
+        
+        return view('layouts.home', ['pertanyaan'=>$pertanyaan, 'user'=>$user, 'iduser'=>$iduser,'poinuser'=>$pointuser]);
     }
+    }
+    
 }

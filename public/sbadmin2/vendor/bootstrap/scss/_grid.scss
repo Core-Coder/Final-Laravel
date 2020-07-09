@@ -3,11 +3,32 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
+<<<<<<< HEAD
+=======
   // Single container class with breakpoint max-widths
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
   .container {
     @include make-container();
     @include make-container-max-widths();
   }
+<<<<<<< HEAD
+}
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but with 100% width for
+// fluid, full width layouts.
+
+@if $enable-grid-classes {
+  .container-fluid {
+    @include make-container();
+  }
+}
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+=======
 
   // 100% wide container at all breakpoints
   .container-fluid {
@@ -48,6 +69,7 @@
 // Row
 //
 // Rows contain your columns.
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 
 @if $enable-grid-classes {
   .row {

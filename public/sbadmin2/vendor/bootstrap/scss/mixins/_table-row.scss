@@ -26,7 +26,11 @@
     $hover-background: darken($background, 5%);
 
     .table-#{$state} {
+<<<<<<< HEAD
+      @include hover {
+=======
       @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
         background-color: $hover-background;
 
         > td,

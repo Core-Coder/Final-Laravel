@@ -8,13 +8,21 @@
   opacity: .5;
 
   // Override <a>'s hover style
+<<<<<<< HEAD
+  @include hover {
+=======
   @include hover() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
     color: $close-color;
     text-decoration: none;
   }
 
   &:not(:disabled):not(.disabled) {
+<<<<<<< HEAD
+    @include hover-focus {
+=======
     @include hover-focus() {
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
       opacity: .75;
     }
   }
@@ -30,6 +38,10 @@ button.close {
   padding: 0;
   background-color: transparent;
   border: 0;
+<<<<<<< HEAD
+  appearance: none;
+=======
+>>>>>>> e01a57a19eccc2ba16c3381797f73f85da737323
 }
 
 // Future-proof disabling of clicks on `<a>` elements
